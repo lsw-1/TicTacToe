@@ -14,6 +14,23 @@ public class Spelare {
 		return "Spelare nr: " + mSpelare + " namn: " + mNamn + " markor: " + mMarkor;
 	}
 
+	public String getNamn(){
+		return mNamn;
+	}
+
+	public char getMarkor(){
+		return mMarkor;
+	}
+
+	/*public int placeraMarkor(int placering){
+		
+		char markoren = getMarkor();
+		mBoard[placering] = markoren;
+	}*/
+
+
+
+
 
 	
 }

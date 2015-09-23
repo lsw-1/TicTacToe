@@ -4,7 +4,7 @@ public class TicTacToe {
 
 	public static void main(String[] args) {
 				
-		
+		Spelplan spelplan = new Spelplan();
 		System.out.println("Välkommen ange namn spelare 1");
 		
 		//Spelare 1 initieras
@@ -21,7 +21,17 @@ public class TicTacToe {
 		Spelare spelare2 = new Spelare(spelareDos, 'O', 2);
 
 		System.out.println(spelare2);
+
+		System.out.println(spelplan);
+
+		System.out.println(spelare1.getNamn() + " börjar att placera");
+
+		spelplan.getBoard();
+
+
+		int svar = scanner.nextInt();
 		
+
 
 	}
 
