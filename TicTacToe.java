@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class TicTacToe {
 
+	private static Scanner scanner;
+
 	public static void main(String[] args) {
 				
 		Spelplan spelplan = new Spelplan();
@@ -9,8 +11,7 @@ public class TicTacToe {
 
 		System.out.println("VÃ¤lkommen ange namn spelare 1");
 		
-		//SPELARE 1 INITIERAS
-		Scanner scanner = new Scanner(System.in);
+		scanner = new Scanner(System.in);
 		String spelareUno = scanner.nextLine(); 
 		Spelare spelare1 = new Spelare(spelareUno, 'X', 1);
 		System.out.println(spelare1);
@@ -27,16 +28,14 @@ public class TicTacToe {
 		System.out.println(spelplan);
 		
 
-		//VARIABLER FÃ–R LOOPEN
+		//VARIABLER FÖR LOOPEN
 		int omgang = 0;
-		int spela;
 		Spelare nuvarandeSpelare;
 		boolean forsattspela = true;
 
 
-		// FUNKTION FÃ–R ATT HÃ…LLA SPELET RULLANDE Ã–VER OMGÃ…NGAR 
-		while(forsattspela){
-			
+		// FUNKTION FÖR ATT HÅLLA SPELET RULLANDE ÖVER OMGÅNGAR 
+		while(forsattspela){			
 
 			if(omgang % 2 == 0){				
 				nuvarandeSpelare = spelare1;							
@@ -44,14 +43,24 @@ public class TicTacToe {
 				nuvarandeSpelare = spelare2;
 			}
 			omgang++;
-
+			
+			
+			
+			do{
 			System.out.println("Placera " + nuvarandeSpelare.getMarkor() + " pa ruta  1 - 9 \n");
 			int svar = scanner.nextInt();
 			spelplan.setBoard(nuvarandeSpelare.getMarkor(), svar - 1);
-			System.out.println(spelplan);	
+			System.out.println(spelplan);
+			} while (spelplan.ärEjKorrekt(svar));
 
+			if(omgang == 9){
+				System.out.println("Oavgjort!");
+				forsattspela = false;
+			}	
 
+			
 
+			
 		}
 
 	}	

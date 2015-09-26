@@ -4,23 +4,11 @@ public class Spelplan{
 	private char mBoard[];
 
 
-	private int vectors [] [] =
-	    {
-		   {0, 1, 2},    // Row 1
-	       {3, 4, 5},    // Row 2
-	       {6, 7, 8},    // Row 3
-	       {0, 3, 6},    // Column 1
-	       {1, 4, 7},    // Column 2
-	       {2, 5, 8},    // Column 3
-	       {0, 4, 8},    // Diagonal 1
-	       {2, 4, 6}     // Diagonal 2
-	    };
-	
-
 		
 	public void reset(){
 		mBoard = new char[] {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
 	}
+	
 
 	public String toString(){
 		return " " +
@@ -40,19 +28,42 @@ public class Spelplan{
 
 	}
 
-	public char setBoard(char symbol, int placering){
-		return mBoard[placering] = symbol;
+	public boolean setBoard(char symbol, int placering){
+		if(placering > 0 && placering < 10){
+			if(mBoard[placering] != ' ')
+				return false;
+			 else {
+				 mBoard[placering] = symbol;
+			}
+		}
+		else{
+			return false;
+		}
+		return false;
 	}
-
 	
-
-
-	
-
-	public static boolean avslutaSpel(){
+	public boolean ärEjKorrekt(int placering){
+		if(placering > 1 || placering < 9 || !ärTom(placering)){
+			return true;
+		} else {
+			return false;
+		}
+			
 		
-		return false ;
+	}
+	
+	public boolean ärTom(int placering){
+		if(mBoard[placering] == ' '){
+			return true;
+
+		} else{
+			System.out.println("Upptagen försök igen! \n");
+			return false;
+		}
+			
+
 	}
 
+	
 
 }
