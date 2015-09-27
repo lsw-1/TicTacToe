@@ -5,7 +5,8 @@ public class TicTacToe {
 	private static Scanner scanner;
 
 	public static void main(String[] args) {
-				
+		
+		//INITIERING AV SPELPLAN		
 		Spelplan spelplan = new Spelplan();
 		spelplan.återställ();
 
@@ -62,11 +63,12 @@ public class TicTacToe {
 			}
 		}
 			
-		System.out.println(spelare1.getNamn() + " har " + spelare1.getVinster() + " vinster " +					
-				" och " + spelare2.getNamn() + " har " + spelare2.getVinster() + " vinster ");
+		System.out.println(spelare1.getNamn() + " har " + spelare1.getVinster() + " vinster och " 					
+				 + spelare2.getNamn() + " har " + spelare2.getVinster() + " vinster \n");
 		omgång = 0;	
 		spelplan.återställ();
 		forsättspela = true;
+		System.out.println("Ny omgång! \n");
 		System.out.println(spelplan);
 	}
 			
