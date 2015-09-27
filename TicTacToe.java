@@ -35,6 +35,7 @@ public class TicTacToe {
 
 
 		// METOD FÖR ATT HÅLLA SPELET RULLANDE ÖVER OMGÅNGAR 
+		while(true){
 		while(forsättspela){				
 			
 			
@@ -52,18 +53,28 @@ public class TicTacToe {
 			if(spelplan.kollaVinnare() == true){
 				System.out.println("Grattis! " + nuvarandeSpelare.getNamn() + " har vunnit!");
 				forsättspela = false;
+				nuvarandeSpelare.setVinster(1);
 			}
 			
 			if(omgång == 9){
 				System.out.println("Oavgjort!");
 				forsättspela = false;
 			}
+		}
 			
-							
+		System.out.println(spelare1.getNamn() + " har " + spelare1.getVinster() + " vinster " +					
+				" och " + spelare2.getNamn() + " har " + spelare2.getVinster() + " vinster ");
+		omgång = 0;	
+		spelplan.återställ();
+		forsättspela = true;
+		System.out.println(spelplan);
+	}
+			
+			
 					
 
 			
-		}
+		
 
 	}	
 

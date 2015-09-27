@@ -49,7 +49,7 @@ public class Spelplan{
 		int svar;
 
 		do{
-			System.out.println("Placera " + symbol + " pa ruta mellan 1 - 9 \n");
+			System.out.println("Placera markör " + symbol + " pa ruta mellan 1 - 9 \n");
 			svar = scanner.nextInt();			
 		} while (arEjKorrekt(svar));		
 		

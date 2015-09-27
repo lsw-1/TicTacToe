@@ -23,11 +23,11 @@ public class Spelare {
 		return mMarkör;
 	}
 	
-	public int getmVinster() {
+	public int getVinster() {
 		return mVinster;
 	}
 	
-	public void setmVinster(int vinster) {
+	public void setVinster(int vinster) {
 		mVinster += vinster;
 	}
 	
