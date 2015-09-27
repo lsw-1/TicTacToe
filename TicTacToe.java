@@ -7,10 +7,11 @@ public class TicTacToe {
 	public static void main(String[] args) {
 				
 		Spelplan spelplan = new Spelplan();
-		spelplan.reset();
+		spelplan.återställ();
 
-		System.out.println("VÃ¤lkommen ange namn spelare 1");
+		System.out.println("Välkommen ange namn spelare 1");
 		
+		//SPELARE 1 INITIERAS
 		scanner = new Scanner(System.in);
 		String spelareUno = scanner.nextLine(); 
 		Spelare spelare1 = new Spelare(spelareUno, 'X', 1);
@@ -18,7 +19,7 @@ public class TicTacToe {
 
 		
 		//SPELARE 2 INITIERAS
-		System.out.println("Ange namn pÃ¥ spelare nummer 2");
+		System.out.println("Ange ett namn på spelare nummer 2");
 		String spelareDos = scanner.nextLine();
 		Spelare spelare2 = new Spelare(spelareDos, 'O', 2);
 		System.out.println(spelare2);
@@ -27,45 +28,44 @@ public class TicTacToe {
 		//VISA SPELPLAN
 		System.out.println(spelplan);
 		
-
 		//VARIABLER FÖR LOOPEN
-		int omgang = 0;
+		int omgång = 0;
 		Spelare nuvarandeSpelare;
-		boolean forsattspela = true;
+		boolean forsättspela = true;
 
 
-		// FUNKTION FÖR ATT HÅLLA SPELET RULLANDE ÖVER OMGÅNGAR 
-		while(forsattspela){			
-
-			if(omgang % 2 == 0){				
+		// METOD FÖR ATT HÅLLA SPELET RULLANDE ÖVER OMGÅNGAR 
+		while(forsättspela){				
+			
+			
+			//IF-SATS FÖR ATT VÄXLA MELLAN DE TVÅ SPELARENA
+			if(omgång % 2 == 0){				
 				nuvarandeSpelare = spelare1;							
 			} else {
 				nuvarandeSpelare = spelare2;
 			}
-			omgang++;
+			omgång++;
 			
-			
-			
-			do{
-			System.out.println("Placera " + nuvarandeSpelare.getMarkor() + " pa ruta  1 - 9 \n");
-			int svar = scanner.nextInt();
-			spelplan.setBoard(nuvarandeSpelare.getMarkor(), svar - 1);
+			spelplan.frågaSpelaren(nuvarandeSpelare.getMarkör());
 			System.out.println(spelplan);
-			} while (spelplan.ärEjKorrekt(svar));
-
-			if(omgang == 9){
-				System.out.println("Oavgjort!");
-				forsattspela = false;
-			}	
-
 			
+			if(spelplan.kollaVinnare() == true){
+				System.out.println("Grattis! " + nuvarandeSpelare.getNamn() + " har vunnit!");
+				forsättspela = false;
+			}
+			
+			if(omgång == 9){
+				System.out.println("Oavgjort!");
+				forsättspela = false;
+			}
+			
+							
+					
 
 			
 		}
 
 	}	
-
-
 
 
 }

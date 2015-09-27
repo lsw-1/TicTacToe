@@ -1,32 +1,37 @@
 public class Spelare {
 
 	private String mNamn;
-	private char mMarkor;
+	private char mMarkör;
 	private int mSpelare;
+	private int mVinster = 0;
 
-	public Spelare(String namn, char markor, int spelare){
+	public Spelare(String namn, char markör, int spelare){
 		mNamn = namn;
-		mMarkor = markor;
+		mMarkör = markör;
 		mSpelare = spelare;
 	}
 
 	public String toString(){
-		return "Spelare nr: " + mSpelare + " namn: " + mNamn + " markor: " + mMarkor;
+		return "Spelare nr: " + mSpelare + " namn: " + mNamn + " markor: " + mMarkör;
 	}
 
 	public String getNamn(){
 		return mNamn;
 	}
 
-	public char getMarkor(){
-		return mMarkor;
+	public char getMarkör(){
+		return mMarkör;
 	}
+	
+	public int getmVinster() {
+		return mVinster;
+	}
+	
+	public void setmVinster(int vinster) {
+		mVinster += vinster;
+	}
+	
 
-	/*public int placeraMarkor(int placering){
-		
-		char markoren = getMarkor();
-		mBoard[placering] = markoren;
-	}*/
 
 
 
